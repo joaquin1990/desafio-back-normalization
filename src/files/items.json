@@ -1,0 +1,38 @@
+[
+	{
+		"title": "Vela de Cera",
+		"price": "4500",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 1
+	},
+	{
+		"title": "Vela de Mipalo",
+		"price": "4500",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 2
+	},
+	{
+		"title": "Vela de sucre",
+		"price": "4500",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 3
+	},
+	{
+		"title": "Vela de Pera",
+		"price": "550",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 4
+	},
+	{
+		"title": "Vela de Lavanda",
+		"price": "550",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 5
+	},
+	{
+		"title": "Aromatizante Day",
+		"price": "660",
+		"thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6fy3YlHrgrVEa_ThJiS3lUL2TrnSeYOdRg&usqp=CAU",
+		"id": 6
+	}
+]

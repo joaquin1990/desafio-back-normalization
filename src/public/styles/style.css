@@ -1,0 +1,29 @@
+.date {
+  color: brown;
+}
+
+.message {
+  color: green;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.user {
+  color: blue;
+  font-weight: bold;
+}
+
+.addProductsBox {
+  /* border-color: black; */
+  border: solid black 1px;
+  margin: 20px;
+  margin-right: 10px;
+  padding-right: 15px;
+  width: 40%;
+  background-color: rgb(245, 245, 245);
+}
+
+.chatbox {
+  border: solid black 1px;
+  width: 65%;
+}
