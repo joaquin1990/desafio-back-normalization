@@ -1,44 +1,5 @@
 const socket = io();
 
-// ----------------PRODUCTS------------------
-
-// let productosForm = document.getElementById("productForm1");
-// const handleSubmit = (evt, form, route) => {
-//   evt.preventDefault();
-//   let formData = new FormData(form);
-//   let obj = {};
-//   formData.forEach((value, key) => (obj[key] = value));
-//   fetch(route, {
-//     method: "POST",
-//     body: JSON.stringify(obj),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((json) => console.log(json), socket.emit("addNewProduct", obj));
-// };
-// productosForm.addEventListener("submit", (e) =>
-//   handleSubmit(e, e.target, "/items")
-// );
-
-// socket.on("updateProductList", (data) => {
-//   let log = document.getElementById("productList");
-//   let messages = "";
-//   data.forEach((message) => {
-//     messages =
-//       messages +
-//       `
-//         <tr>
-//             <td>${message.title}</td>
-//             <td>${message.price}</td>
-//             <td> <img src="${message.thumbnail}" alt="El enlace no esta disponible" width="60"></td>
-//         </tr>`;
-//   });
-//   log.innerHTML = messages;
-//   document.getElementById("productForm1").reset();
-// });
-
 // -------------CHAT-------------
 let username;
 const chatBox = document.getElementById("chatBox");
@@ -101,10 +62,14 @@ chatBox.addEventListener("submit", (evt) => {
 socket.on("log", (data) => {
   let message = document.getElementById("message");
   let messages = "";
+  console.log("data joaco +++++++++++++++++: ");
+  console.log(data);
   data.forEach((msg) => {
+    console.log("msg");
+    console.log(msg);
     messages =
       messages +
-      ` <span class="date">(${msg.date})</span> <span class="user"> --- ${msg.user} dice:  </span>  ${msg.message}</br>`;
+      ` <span class="date">(${msg.fecha})</span> <span class="user"> --- ${msg.user[0].alias} dice:  </span>  ${msg.message}</br>`;
   });
   message.innerHTML = messages;
 });
