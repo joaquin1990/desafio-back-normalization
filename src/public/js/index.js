@@ -42,18 +42,41 @@ socket.on("updateProductList", (data) => {
 // -------------CHAT-------------
 let username;
 const chatBox = document.getElementById("chatBox");
-
 Swal.fire({
-  title: "Identificate",
-  text: "Ingresa el usuario con el que te identificaras en el chat",
-  input: "text",
+  title: "Registrate",
+  html: `<input type="text" id="id" class="swal2-input" placeholder="Gmail">
+    <input type="text" id="firts_name" class="swal2-input" placeholder="Nombre">
+    <input type="text" id="last_name" class="swal2-input" placeholder="Apellido">
+    <input type="number" id="age" class="swal2-input" placeholder="Edad">
+    <input type="text" id="alias" class="swal2-input" placeholder="Alias">
+    <input type="text" id="avatar" class="swal2-input" placeholder="Avatar(URL)">`,
   inputValidator: (value) => {
-    return !value && "Necesitas identificarte para poder continuar!";
+    return !value && "You need to identify before going on!";
   },
   allowOutsideClick: false,
   allowEscapeKey: false,
+  preConfirm: () => {
+    const id = document.getElementById("id").value;
+    const firts_name = document.getElementById("firts_name").value;
+    const last_name = document.getElementById("last_name").value;
+    const age = document.getElementById("age").value;
+    const alias = document.getElementById("alias").value;
+    const avatar = document.getElementById("avatar").value;
+    if (!id || !firts_name || !last_name || !age || !alias || !avatar) {
+      Swal.showValidationMessage(`Rellena todos los campos para continuar >:c`);
+    }
+  },
 }).then((result) => {
-  username = result.value;
+  username = [
+    {
+      id: document.getElementById("id").value,
+      nombre: document.getElementById("firts_name").value,
+      apellido: document.getElementById("last_name").value,
+      edad: document.getElementById("age").value,
+      alias: document.getElementById("alias").value,
+      avatar: document.getElementById("avatar").value,
+    },
+  ];
 });
 
 // Listener
@@ -69,7 +92,7 @@ chatBox.addEventListener("keyup", (evt) => {
 
 chatBox.addEventListener("submit", (evt) => {
   if (chatBox.value.trim().length > 0) {
-    socket.emit("message", { user: username, message: chatBox.value });
+    socket.emit("message", { author: username, text: chatBox.value });
     chatBox.value = "";
   }
 });
