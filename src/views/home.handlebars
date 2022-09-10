@@ -7,37 +7,28 @@
   />
 </head>
 </div>
-<div>
-  <div>
-    <div class="ms-5 addProductsBox">
-      <h3 class="mt-4 ms-3"> <u>Agrega Nuevos productos:</u>  </h3>
-      <form class="d-flex flex-column" id="productForm1">
-        <div class="d-flex flex-column ms-4">
-          <label for="title">Title</label>
-          <input id="title" name="title" />
-          <label for="price">Price</label>
-          <input id="price" name="price" />
-          <label>Thumbnail</label>
-          <input name="thumbnail" required />
-          <input class="w-25 m-auto mt-3 " type="submit" />
-        </div>
-      </form>
-    </div>
-    <div class="ms-5 me-5">
-      <h3 class="ms-3">Product View:</h3>
-      <table class="table table-bordered table-striped text-center mt-4">
+ <div class="container">
+      <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Price</th>
             <th scope="col">Thumbnail</th>
           </tr>
-        </thead>
+        </thead>  
+         <tbody>
+           {{#each fakerProducts}}
+          <tr>
+            <td>{{this.title}} </td>
+            <td>{{this.prices}} </td>
+            <td> <img src="{{this.thumbnail}}" alt="El enlace no esta disponible" width="60"></td>
+          </tr>
+          {{/each}}
+        </tbody>
 
-        <tbody id="productList"></tbody>
-      </table>
+
+      </table>  
     </div>
-  </div>
   <div class="p-3 chatbox p-3 m-3">
     <h2>Chat:</h2>
     <input class="w-75 mb-3" id="chatBox" />

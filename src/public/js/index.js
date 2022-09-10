@@ -2,42 +2,42 @@ const socket = io();
 
 // ----------------PRODUCTS------------------
 
-let productosForm = document.getElementById("productForm1");
-const handleSubmit = (evt, form, route) => {
-  evt.preventDefault();
-  let formData = new FormData(form);
-  let obj = {};
-  formData.forEach((value, key) => (obj[key] = value));
-  fetch(route, {
-    method: "POST",
-    body: JSON.stringify(obj),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((json) => console.log(json), socket.emit("addNewProduct", obj));
-};
-productosForm.addEventListener("submit", (e) =>
-  handleSubmit(e, e.target, "/items")
-);
+// let productosForm = document.getElementById("productForm1");
+// const handleSubmit = (evt, form, route) => {
+//   evt.preventDefault();
+//   let formData = new FormData(form);
+//   let obj = {};
+//   formData.forEach((value, key) => (obj[key] = value));
+//   fetch(route, {
+//     method: "POST",
+//     body: JSON.stringify(obj),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((json) => console.log(json), socket.emit("addNewProduct", obj));
+// };
+// productosForm.addEventListener("submit", (e) =>
+//   handleSubmit(e, e.target, "/items")
+// );
 
-socket.on("updateProductList", (data) => {
-  let log = document.getElementById("productList");
-  let messages = "";
-  data.forEach((message) => {
-    messages =
-      messages +
-      `
-        <tr>
-            <td>${message.title}</td>
-            <td>${message.price}</td>
-            <td> <img src="${message.thumbnail}" alt="El enlace no esta disponible" width="60"></td>
-        </tr>`;
-  });
-  log.innerHTML = messages;
-  document.getElementById("productForm1").reset();
-});
+// socket.on("updateProductList", (data) => {
+//   let log = document.getElementById("productList");
+//   let messages = "";
+//   data.forEach((message) => {
+//     messages =
+//       messages +
+//       `
+//         <tr>
+//             <td>${message.title}</td>
+//             <td>${message.price}</td>
+//             <td> <img src="${message.thumbnail}" alt="El enlace no esta disponible" width="60"></td>
+//         </tr>`;
+//   });
+//   log.innerHTML = messages;
+//   document.getElementById("productForm1").reset();
+// });
 
 // -------------CHAT-------------
 let username;

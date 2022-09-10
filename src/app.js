@@ -1,7 +1,6 @@
 import express from "express";
 import handlebars from "express-handlebars";
 import __dirname from "./utils.js";
-import viewsRouter from "./routes/views.router.js";
 import { Server } from "socket.io";
 import faker from "faker";
 import { normalize, schema } from "normalizr";
@@ -22,7 +21,6 @@ app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname + "/views");
 app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
-app.use("/", viewsRouter);
 
 faker.locale = "es";
 const { commerce, image } = faker;
@@ -40,11 +38,11 @@ app.get("/normalized", async (req, res) => {
   try {
     let log = await db.getAllNormalize();
     const authors = new schema.Entity("author");
-    const mensaje = new schema.Entity("messages", {
+    const message = new schema.Entity("messages", {
       author: authors,
     });
     const holdingSchema = new schema.Entity("holdings", {
-      mensajes: [mensaje],
+      messages: [message],
     });
     const normalizedData = normalize(log, holdingSchema);
     res.send(normalizedData);
@@ -70,7 +68,7 @@ io.on("connection", async (socket) => {
 });
 
 app.get("/", async (req, res) => {
-  res.render("formulario", {
-    productsFaker,
+  res.render("home", {
+    fakerProducts,
   });
 });
